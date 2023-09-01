@@ -20,17 +20,19 @@ let numberRegex=/^[0-9]{10}$/;
    let  emailVal=email.value.trim();
     let  numberVal=number.value.trim();
     let  textVal=text.value.trim();
+    // function
      validateName(nameVal)
      validateemail(emailVal)
       validatetext(textVal)
      validatenumber(numberVal)
+     //submit 
      if(validateName(nameVal)==1&&validateemail(emailVal)==1&&validatenumber(numberVal)==1&&validatetext(textVal)==1){
         if(confirm(`Your Message Sent Successfully
         ${nameVal}
         ${emailVal}
         ${numberVal}
         ${textVal}`)){
-            Name.value='';
+            Name.value='';                                                                                              
             email.value='';
             number.value='';
             text.value='';
@@ -44,6 +46,7 @@ let numberRegex=/^[0-9]{10}$/;
     
 
  })
+ // error
  function removeErr(err,input,time=3000){
     setTimeout(()=>{
         err.innerHTML=""
@@ -51,15 +54,15 @@ let numberRegex=/^[0-9]{10}$/;
     },time)
  }
 
- function validateName(nameVal){
-    console.log(nameVal)
-    if(nameVal===""){
+ function validateName(a){
+    // console.log(a)
+    if(a===""){
         nameError.innerHTML="Name is required"
         Name.style.border="1px solid red"
         removeErr(nameError,Name)
         return -1
     }
-     else if(nameVal.length<3){
+     else if(a.length<3){
         nameError.innerHTML=" Enter a Proper Name"
         Name.style.border="1px solid red"
         removeErr(nameError,Name)
@@ -70,6 +73,7 @@ let numberRegex=/^[0-9]{10}$/;
      Name.style.border="3px solid green"
      return 1
  }
+ 
  function validateemail(emailVal){
     if(emailVal===""){
         emailError.innerHTML="email is required"
